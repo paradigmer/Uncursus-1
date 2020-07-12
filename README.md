@@ -10,7 +10,7 @@
 ***Note: you must have a computer to launch the script via SSH, you cannot use NewTerm.***<br/>
 1) Restore rootfs with unc0ver<br/>
 2) Rejailbreak with unc0ver<br/>
-3) Refresh sources in Cydia and install `OpenSSH`<br/>
+3) Refresh sources in Cydia and install `OpenSSH` and `Curl`<br/>
 4) Find the IP of your iDevice and connect via SSH on your computer.<br/>
 5) Use the following command in your SSH session for installation:<br/>
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/new/installuncursus.sh)"`<br/>
