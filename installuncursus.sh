@@ -45,6 +45,7 @@ echo "Uninstalling Cydia..."
 apt update
 apt install cydia -y --allow-unauthenticated
 apt purge cydia -y
+uicache -a
 echo "All Done."
 killall SpringBoard
 fi
