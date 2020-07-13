@@ -41,8 +41,10 @@ echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
 echo "Bootstrap installation complete. Cleaning up..."
 rm -rf /User/Documents/uncursus/
-rm /etc/apt/sources.list.d/odyssey.sources
+echo "Uninstalling Cydia..."
+apt update
+apt install cydia -y --allow-unauthenticated
+apt purge cydia -y
 echo "All Done."
-rm -rf /Aplications/Cydia.app
 killall SpringBoard
 fi
