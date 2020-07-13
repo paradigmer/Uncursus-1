@@ -8,6 +8,7 @@
 ### Installation:
 ***Disclaimer: I am not held responsible for any damage done to your device.***<br/>
 ***Note: you must have a computer to launch the script via SSH, you cannot use NewTerm.***<br/>
+***Note: I recommend that you know what you're doing***<br/>
 1) Restore rootfs with unc0ver<br/>
 2) Rejailbreak with unc0ver<br/>
 3) Refresh sources in Cydia and install `OpenSSH` and `Curl`<br/>
