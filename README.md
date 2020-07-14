@@ -21,7 +21,7 @@
 - Discord: Yaya4#1989
 - Twitter: [@Yaya4_4](https://twitter.com/Yaya4_4)
 
-***Note: The support is not made for install help but for bug reports all install steps is here***<br/>
+***Note: The support is not made for install help but for bug reports or ask questions all install steps is here***<br/>
 
 ### Credits:
 [Procursus Team](https://github.com/ProcursusTeam/) - for the bootstrap<br/>
