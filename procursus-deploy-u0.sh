@@ -71,10 +71,6 @@ echo 'rm -rf /var/lib' >> odyssey-device-deploy.sh
 echo 'tar --preserve-permissions -xkf bootstrap_${CFVER}-ssh.tar -C /' >> odyssey-device-deploy.sh
 echo '/Library/dpkg/info/openssh.postinst || true' >> odyssey-device-deploy.sh
 echo 'launchctl load -w /Library/LaunchDaemons/com.openssh.sshd.plist || true' >> odyssey-device-deploy.sh
-printf %s 'SNAPSHOT=$(snappy -s | ' >> odyssey-device-deploy.sh
-printf %s "cut -d ' ' -f 3 | tr -d '\n')" >> odyssey-device-deploy.sh
-echo '' >> odyssey-device-deploy.sh
-echo 'snappy -f / -r $SNAPSHOT -t orig-fs' >> odyssey-device-deploy.sh
 echo 'fi' >> odyssey-device-deploy.sh
 echo '/usr/libexec/firmware' >> odyssey-device-deploy.sh
 echo 'mkdir -p /etc/apt/sources.list.d/' >> odyssey-device-deploy.sh
