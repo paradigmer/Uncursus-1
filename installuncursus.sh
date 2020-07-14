@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
 clear
-echo -e "\e[31mWelcome to Uncursus Installation Script V1.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V1.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
 echo "If you've found any bugs, please create an issue in GitHub."
 echo "Installing Dependencies..."
