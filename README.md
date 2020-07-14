@@ -1,5 +1,5 @@
 <center>
-  <h1 align="center">uncursus</h1>
+  <h1 align="center">Uncursus</h1>
   <h3 align="center">a installation script that allows Procursus as its bootstrap</h3>
   <br/>
   <h4 align="center">Note: It's not recommended by the Procursus maintainers to run this script, support will not be provided so please do not go contacting Diatrus.</h4>
