@@ -9,6 +9,7 @@ fi
 
 echo "odysseyra1n deployment script"
 echo "(C) 2020, CoolStar. All Rights Reserved"
+echo "Unc0ver Version"
 
 echo ""
 echo "Before you begin: This script includes experimental migration from older bootstraps to Procursus/Odyssey."
