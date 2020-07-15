@@ -18,8 +18,8 @@ echo "If you'd rather start clean, please Reset System via the Loader app first.
 read -p "Press enter to continue"
 
 echo "Downloading Resources..."
-wget https://github.com/coolstar/odyssey-bootstrap/raw/master/bootstrap_1600-ssh.tar.gz --directory-prefix=/var/root
-wget https://github.com/coolstar/odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/var/root
+wget https://github.com/coolstar/odyssey-bootstrap/raw/master/bootstrap_1600-ssh.tar.gz --directory-prefix=/var/root --no-check-certificate
+wget https://github.com/coolstar/odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/var/root --no-check-certificate
 
 cd /var/root
 gzip -d bootstrap_1600-ssh.tar.gz
