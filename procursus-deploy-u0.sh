@@ -19,21 +19,6 @@ read -p "Press enter to continue"
 echo "Downloading Resources..."
 curl -L -O https://github.com/coolstar/odyssey-bootstrap/raw/master/bootstrap_1500-ssh.tar.gz -O https://github.com/coolstar/odyssey-bootstrap/raw/master/bootstrap_1600-ssh.tar.gz -O https://github.com/coolstar/odyssey-bootstrap/raw/master/migration -O https://github.com/coolstar/odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 
-if [[ -f "/.bootstrapped" ]]; then
-mkdir -p /odyssey && mv migration /odyssey
-chmod 0755 /odyssey/migration
-/odyssey/migration
-rm -rf /odyssey
-else
-VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
-if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
-CFVER=1500
-elif [[ "${VER%.*}" -ge 13 ]]; then
-CFVER=1600 
-else
-echo "${VER} not compatible."
-exit 1
-fi
 gzip -d bootstrap_${CFVER}-ssh.tar.gz
 mount -uw -o union /dev/disk0s1s1
 rm -rf /etc/profile
@@ -49,7 +34,6 @@ rm -rf /var/lib
 tar --preserve-permissions -xkf bootstrap_${CFVER}-ssh.tar -C /
 /Library/dpkg/info/openssh.postinst || true 
 launchctl load -w /Library/LaunchDaemons/com.openssh.sshd.plist || true
-fi 
 /usr/libexec/firmware 
 mkdir -p /etc/apt/sources.list.d/ 
 echo "Types: deb" > /etc/apt/sources.list.d/odyssey.sources 
