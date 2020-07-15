@@ -15,10 +15,11 @@ echo "Before you begin: This script includes experimental migration from older b
 echo "If you're already jailbroken, you can run this script on the checkra1n device."
 echo "If you'd rather start clean, please Reset System via the Loader app first."
 read -p "Press enter to continue"
-cd /var/root
-echo "Downloading Resources..."
-curl -L -O https://github.com/coolstar/odyssey-bootstrap/raw/master/bootstrap_1600-ssh.tar.gz -O https://github.com/coolstar/odyssey-bootstrap/raw/master/migration -O https://github.com/coolstar/odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 
+echo "Downloading Resources..."
+curl -L -O https://github.com/coolstar/odyssey-bootstrap/raw/master/bootstrap_1600-ssh.tar.gz -O https://github.com/coolstar/odyssey-bootstrap/raw/master/migration -O https://github.com/coolstar/odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb /var/root
+
+cd /var/root
 gzip -d bootstrap_1600-ssh.tar.gz
 mount -uw -o union /dev/disk0s1s1
 rm -rf /etc/profile
