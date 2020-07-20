@@ -1,5 +1,11 @@
 #!/bin/bash
-
+if [ $(uname) = "Darwin" ]; then
+ 	if [ $(uname -p) = "arm" ] || [ $(uname -p) = "arm64" ]; then
+ 		echo "It's recommended this script be ran on macOS/Linux with a clean iOS device running checkra1n attached unless migrating from older bootstrap."
+ 		ARM=yes
+ 	fi
+ fi
+ 
 echo "odysseyra1n deployment script"
 echo "(C) 2020, CoolStar. All Rights Reserved"
 echo "Uncursus Version"
