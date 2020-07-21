@@ -24,7 +24,7 @@
 3) Install Uncursus Installer
 4) Enter In Terminal And Log In As Root With Default Passworld Type: su after alpine
 5) Run uncursus-installer and wait
-6) Enjoy
+6) When Is Finished Your Device Will Respring After Open Sileo Do Update And Enjoy
 
 ### Questions & Support:
 - Discord: Yaya4#1989
