@@ -17,6 +17,15 @@
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/new/installuncursus.sh)"`<br/>
 6) Once your device resprings, launch Sileo and you're good to go.<br/>
 
+***For All Users Cannot Have A Pc I Make a Non-Computer Version**
+***Disclimer This still in beta**
+1) Restore Rootfs
+2) Add https://yaya48.github.io/repo/
+3) Install Uncursus Installer
+4) Enter In Terminal And Log In As Root With Default Passworld Type: su after alpine
+5) Run uncursus-installer and wait
+6) Enjoy
+
 ### Questions & Support:
 - Discord: Yaya4#1989
 - Twitter: [@Yaya4_4](https://twitter.com/Yaya4_4)
