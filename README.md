@@ -20,7 +20,7 @@
 ***For All Users Cannot Have A Pc I Make a Non-Computer Version***<br/>
 ***Note: Disclimer This still in beta***<br/>
 1) Restore Rootfs
-2) Add https://yaya48.github.io/repo/
+2) Add https://yaya48.github.io/repo/ in cydia
 3) Install Uncursus Installer
 4) Enter In Terminal And Log In As Root With Default Passworld Type: su after alpine
 5) Run uncursus-installer and wait
