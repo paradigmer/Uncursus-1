@@ -17,8 +17,8 @@
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/new/installuncursus.sh)"`<br/>
 6) Once your device resprings, launch Sileo and you're good to go.<br/>
 
-***For All Users Cannot Have A Pc I Make a Non-Computer Version**
-***Disclimer This still in beta**
+***For All Users Cannot Have A Pc I Make a Non-Computer Version***
+***Disclimer This still in beta***
 1) Restore Rootfs
 2) Add https://yaya48.github.io/repo/
 3) Install Uncursus Installer
