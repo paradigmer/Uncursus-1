@@ -19,9 +19,17 @@ rm -rf /User/Documents/uncursus
 mkdir /User/Documents/uncursus
 apt update
 apt install wget -y --allow-unauthenticated
-wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem.zip?raw=true --directory-prefix=/User/Documents/uncursus/
-unzip /User/Documents/uncursus/debprocursussystem.zip?raw=true -d /User/Documents/uncursus/
+
+VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
+if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
+wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1500.zip?raw=true --directory-prefix=/User/Documents/uncursus/
+unzip /User/Documents/uncursus/debprocursussystem-1500.zip?raw=true -d /User/Documents/uncursus/
+dpkg -i /User/Documents/uncursus/debprocursussystem1500/*.deb
+elif [[ "${VER%.*}" -ge 13 ]]; then
+wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1600.zip?raw=true --directory-prefix=/User/Documents/uncursus/
+unzip /User/Documents/uncursus/debprocursussystem-1600.zip?raw=true -d /User/Documents/uncursus/
 dpkg -i /User/Documents/uncursus/debprocursussystem/*.deb
+fi
 echo "Done. Creating a custom directory for the required files. Path (/User/Documents/)."
 mkdir /User/Documents/uncursus/u0
 wget https://github.com/Yaya48/Uncursus/blob/new/debpatch.zip?raw=true --directory-prefix=/User/Documents/uncursus/
