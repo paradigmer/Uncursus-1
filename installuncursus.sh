@@ -22,10 +22,12 @@ apt install wget -y --allow-unauthenticated
 
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
+echo "iOS 12 Dectected Installing iOS 12 Procursus Deb"
 wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1500.zip?raw=true --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debprocursussystem-1500.zip?raw=true -d /User/Documents/uncursus/
 dpkg -i /User/Documents/uncursus/debprocursussystem1500/*.deb
 elif [[ "${VER%.*}" -ge 13 ]]; then
+echo "iOS 13 Dectected Installing iOS 13 Procursus Deb"
 wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1600.zip?raw=true --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debprocursussystem-1600.zip?raw=true -d /User/Documents/uncursus/
 dpkg -i /User/Documents/uncursus/debprocursussystem/*.deb
