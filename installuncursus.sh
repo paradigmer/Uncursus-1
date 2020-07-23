@@ -30,6 +30,7 @@ echo "iOS 13 Dectected Installing iOS 13 Procursus Deb"
 wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1600.zip?raw=true --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debprocursussystem-1600.zip?raw=true -d /User/Documents/uncursus/
 dpkg -i /User/Documents/uncursus/debprocursussystem/*.deb
+fi
 echo "Done. Creating a custom directory for the required files. Path (/User/Documents/)."
 mkdir /User/Documents/uncursus/u0
 wget https://github.com/Yaya48/Uncursus/blob/new/debpatch.zip?raw=true --directory-prefix=/User/Documents/uncursus/
