@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
 clear
-echo -e "\e[31mWelcome to Uncursus Installation Script V1.3.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V1.3.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
 echo "If you've found any bugs, please create an issue in GitHub."
 echo "Installing Dependencies..."
@@ -21,15 +21,17 @@ apt update
 apt install wget -y --allow-unauthenticated
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
-echo "iOS 12 Dectected Installing iOS 12 Procursus Deb"
-wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1500.zip?raw=true --directory-prefix=/User/Documents/uncursus/
-unzip /User/Documents/uncursus/debprocursussystem-1500.zip?raw=true -d /User/Documents/uncursus/
-dpkg -i /User/Documents/uncursus/debprocursussystem1500/*.deb
+echo "cock"
 elif [[ "${VER%.*}" -ge 13 ]]; then
 echo "iOS 13 Dectected Installing iOS 13 Procursus Deb"
 wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1600.zip?raw=true --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debprocursussystem-1600.zip?raw=true -d /User/Documents/uncursus/
 dpkg -i /User/Documents/uncursus/debprocursussystem/*.deb
+else
+echo "iOS 12 Dectected Installing iOS 12 Procursus Deb"
+wget https://github.com/Yaya48/Uncursus/blob/new/debprocursussystem-1500.zip?raw=true --directory-prefix=/User/Documents/uncursus/
+unzip /User/Documents/uncursus/debprocursussystem-1500.zip?raw=true -d /User/Documents/uncursus/
+dpkg -i /User/Documents/uncursus/debprocursussystem1500/*.deb
 fi
 echo "Done. Creating a custom directory for the required files. Path (/User/Documents/)."
 mkdir /User/Documents/uncursus/u0
