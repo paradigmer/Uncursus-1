@@ -22,7 +22,11 @@ apt install com.bingner.plutil -y
 apt install curl -y
 echo "Pulling and executing the Procursus Migration Script"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/beta/procursus-migration.sh)"
-echo "Setuping Uncursus Repo...."
+echo "Done. Creating a custom directory for the required files. Path (/User/Documents/uncursus)."
+rm -rf /User/Documents/uncursus
+mkdir /User/Documents/uncursus
+mkdir /User/Documents/uncursus/u0
+echo "Done. Setuping Uncursus Repo...."
 echo "Types: deb" > /etc/apt/sources.list.d/odyssey.sources
 echo "URIs: https://yaya48.github.io/uncursusrepo" >> /etc/apt/sources.list.d/odyssey.sources
 echo "Suites: ./" >> /etc/apt/sources.list.d/odyssey.sources
@@ -38,10 +42,6 @@ wget https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo
 dpkg -i User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 apt update
 apt install wget -y --allow-unauthenticated
-echo "Done. Creating a custom directory for the required files. Path (/User/Documents/uncursus)."
-rm -rf /User/Documents/uncursus
-mkdir /User/Documents/uncursus
-mkdir /User/Documents/uncursus/u0
 echo "Done. Downloading necessities"
 wget https://yaya48.gq/files/uncursus/debpatch.zip --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debpatch.zip -d /User/Documents/uncursus/debpatch
