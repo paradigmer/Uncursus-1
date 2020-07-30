@@ -63,5 +63,5 @@ echo "Uninstalling Cydia..."
 apt purge cydia -y
 uicache -a
 echo "All Done."
-ldrestart
+sbreload
 fi
