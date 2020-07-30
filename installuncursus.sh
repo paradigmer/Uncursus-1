@@ -38,7 +38,7 @@ echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/odyssey
 echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/odyssey
 echo "" >> /etc/apt/preferenced.d/odyssey
 echo "Done. Installing Sileo"
-wget https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus
+wget -q https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus
 dpkg -i /User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 apt update
 apt install wget -y --allow-unauthenticated
@@ -46,8 +46,8 @@ echo "Done. Downloading necessities"
 wget https://yaya48.gq/files/uncursus/debpatch.zip --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debpatch.zip -d /User/Documents/uncursus/debpatch
 rm -rf /usr/bin/cynject
-wget https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
-wget https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6003_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
+wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
+wget -q https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6003_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
 echo "Done. Installing necessities..."
 dpkg -i --force-all /User/Documents/uncursus/debpatch/*.deb
 dpkg -i --force-all /User/Documents/uncursus/u0/*.deb
