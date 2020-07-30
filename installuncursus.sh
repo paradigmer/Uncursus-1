@@ -63,5 +63,7 @@ echo "Uninstalling Cydia..."
 apt purge cydia -y
 uicache -a
 echo "All Done."
+touch /.installed_odyssey
+touch /.procursus_strapped
 sbreload
 fi
