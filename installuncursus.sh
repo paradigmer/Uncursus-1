@@ -28,7 +28,7 @@ apt install $need -y
 fi
 echo "Pulling and executing the Procursus Migration Script"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/beta/procursus-migration.sh)"
-echo "Done. Creating a custom directory for the required files. Path (/User/Documents/uncursus)."
+echo "Creating a custom directory for the required files. Path (/User/Documents/uncursus)."
 rm -rf /User/Documents/uncursus
 mkdir /User/Documents/uncursus
 mkdir /User/Documents/uncursus/u0
