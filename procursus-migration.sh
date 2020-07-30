@@ -50,6 +50,5 @@ echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
 echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
 echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
-rm -rf /var/root/migration
 echo -e "\e[32mMigration Finished!\e[0m"
 fi
