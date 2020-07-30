@@ -9,7 +9,7 @@
 ***Disclaimer: I am not held responsible for any damage done to your device.***<br/>
 ***Note: you must have a computer to launch the script via SSH, you cannot use NewTerm.***<br/>
 ***Note: I recommend that you know what you're doing***<br/>
-1) Restore rootfs with unc0ver<br/>
+1) You don't need to restore rootfs anymore Tweaks/Apps Are saved<br/>
 2) Rejailbreak with unc0ver<br/>
 3) Refresh sources in Cydia and install `OpenSSH` and `Curl`<br/>
 4) Find the IP of your iDevice and connect via SSH on your computer.<br/>
@@ -19,7 +19,7 @@
 
 ***For All Users Cannot Have A Pc I Made a Non-Computer Version***<br/>
 ***Note: Disclimer This still in beta***<br/>
-1) Restore Rootfs
+1) You don't need to restore rootfs anymore Tweaks/Apps Are saved<
 2) Add https://repo.yaya48.gq in cydia
 3) Install Uncursus Installer
 4) Enter In Terminal And Log In As Root With Default Passworld Type: su after alpine
