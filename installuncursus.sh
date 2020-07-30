@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
 clear
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.0 (Beta1) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.0 (Beta2) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking If Is A Clean Install Of Unc0ver..."
 if [[ -f "/.procursus_strapped" ]]; then
 echo "Please do not use this on odyssey or on an already uncursus installation.."
@@ -39,7 +39,7 @@ echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/odyssey
 echo "" >> /etc/apt/preferenced.d/odyssey
 echo "Done. Installing Sileo"
 wget https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus
-dpkg -i User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
+dpkg -i /User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 apt update
 apt install wget -y --allow-unauthenticated
 echo "Done. Downloading necessities"
