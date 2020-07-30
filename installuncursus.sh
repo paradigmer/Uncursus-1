@@ -38,7 +38,7 @@ echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/odyssey
 echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/odyssey
 echo "" >> /etc/apt/preferenced.d/odyssey
 echo "Done. Installing Sileo"
-wget https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb /User/Documents/uncursus
+wget https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus
 dpkg -i User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 apt update
 apt install wget -y --allow-unauthenticated
