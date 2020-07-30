@@ -53,4 +53,5 @@ echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.source
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
 echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
 echo -e "\e[32mMigration Finished!\e[0m"
+echo -e "\e[32mBack To Uncursus Script...\e[0m"
 fi
