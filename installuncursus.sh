@@ -20,7 +20,7 @@ exit 1
 fi
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
 echo "If you've found any bugs, please create an issue in GitHub."
-echo "Checking Dependencies"
+echo "Checking Dependencies..."
 if [ $need != "" ]; then
 echo "Installing Dependencies..."
 apt update
