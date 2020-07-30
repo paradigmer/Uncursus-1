@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
 clear
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0(Beta6)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0(Beta7)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
