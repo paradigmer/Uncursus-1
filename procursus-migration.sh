@@ -7,13 +7,21 @@ echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0(Beta5)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
-echo "cock"
+echo "iOS 12 Dectected Set The CFVER To 1500"
+CFVER=1500
 elif [[ "${VER%.*}" -ge 13 ]]; then
 echo "iOS 13 Dectected Set The CFVER To 1600"
 CFVER=1600
 else
+if [[ "${VER%.*.*}" -ge 13 ]]; then
+echo "iOS 13 Dectected Set The CFVER To 1600"
+CFVER=1600
+else
+if [[ "${VER%.*.*}" -ge 12 ]]; then
 echo "iOS 12 Dectected Set The CFVER To 1500"
 CFVER=1500
+fi
+fi
 fi
 echo -e "\e[32mStarting Migration....\e[0m"
 apt update
