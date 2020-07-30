@@ -20,6 +20,7 @@ need=""
 command -v unzip >/dev/null 2>&1 || need+="unzip "
 command -v plutil >/dev/null 2>&1 || need+="com.bingner.plutil "
 command -v curl >/dev/null 2>&1 || need+="curl "
+command -v curl >/dev/null 2>&1 || need+="wget "
 if [ $need != "" ]; then
 echo "Installing Dependencies..."
 apt update
