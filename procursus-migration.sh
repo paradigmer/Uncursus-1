@@ -32,6 +32,7 @@ rm -rf /var/root/migration
 mkdir /var/root/migration
 wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/var/root/migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_8.32-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/var/root/migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/firmware-sbin_0-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/var/root/migration
 wget -q http://yaya48.gq/files/migration-files/elucubratustoprocursus/libncurses.6.dylib --no-check-certificate --directory-prefix=/var/root/migration
 dpkg -i /var/root/migration/procursus-keyring_2020.05.09_iphoneos-arm.deb
 apt update
@@ -41,6 +42,7 @@ wget -q https://yaya48.gq/files/migration-files/shared/${CFVER}/liblzma.5.dylib 
 apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1 
 cp /var/root/migration/libncurses.6.dylib /usr/lib
+dpkg -i --force-all /var/root/migration/firmware-sbin_0-1_iphoneos-arm.deb
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /var/root/migration/coreutils_8.32-1_iphoneos-arm.deb
 dpkg -r apt1.4
