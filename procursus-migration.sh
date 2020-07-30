@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
 clear
-echo "Uncursus 2.0 Migration Part By Yaya4_4 1.0(Beta5)"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0(Beta5)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
@@ -15,6 +15,7 @@ else
 echo "iOS 12 Dectected Set The CFVER To 1500"
 CFVER=1500
 fi
+echo -e "\e[32mStarting Migration....\e[0m"
 apt update
 apt install wget -y --allow-unauthenticated
 rm /etc/apt/sources.list.d/cydia.list
@@ -42,5 +43,5 @@ echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.source
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
 echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
 rm -rf /var/root/migration
-echo -e "\e[32mMigration Finished!"
+echo -e "\e[32mMigration Finished!\e[0m"
 fi
