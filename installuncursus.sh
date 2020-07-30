@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
 clear
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.0 (Beta2) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.0 (Beta3) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking If Is A Clean Install Of Unc0ver..."
 if [[ -f "/.procursus_strapped" ]]; then
 echo "Please do not use this on odyssey or on an already uncursus installation.."
@@ -43,7 +43,7 @@ dpkg -i /User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
 apt update
 apt install wget -y --allow-unauthenticated
 echo "Done. Downloading necessities"
-wget https://yaya48.gq/files/uncursus/debpatch.zip --directory-prefix=/User/Documents/uncursus/
+wget -q https://yaya48.gq/files/uncursus/debpatch.zip --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debpatch.zip -d /User/Documents/uncursus/debpatch
 rm -rf /usr/bin/cynject
 wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
