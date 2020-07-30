@@ -40,8 +40,6 @@ echo "" >> /etc/apt/preferenced.d/odyssey
 echo "Done. Installing Sileo"
 wget -q https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus
 dpkg -i /User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
-apt update
-apt install wget -y --allow-unauthenticated
 echo "Done. Downloading necessities"
 wget -q https://yaya48.gq/files/uncursus/debpatch.zip --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debpatch.zip -d /User/Documents/uncursus/debpatch
