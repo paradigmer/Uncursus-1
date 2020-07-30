@@ -46,8 +46,6 @@ dpkg -i --force-all /var/root/migration/firmware-sbin_0-1_iphoneos-arm.deb
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /var/root/migration/coreutils_8.32-1_iphoneos-arm.deb
 dpkg -r apt1.4
-dpkg -r cydia-list
-rm -rf /etc/apt/sources.list.d/cydia.list
 echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
 echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
