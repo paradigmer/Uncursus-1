@@ -15,11 +15,16 @@ exit 1
 fi
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
 echo "If you've found any bugs, please create an issue in GitHub."
+echo "Checking Dependencies"
+need=""
+command -v unzip >/dev/null 2>&1 || need+="unzip "
+command -v plutil >/dev/null 2>&1 || need+="com.bingner.plutil "
+command -v curl >/dev/null 2>&1 || need+="curl "
+if [ $need != "" ]; then
 echo "Installing Dependencies..."
 apt update
-apt install unzip -y
-apt install com.bingner.plutil -y
-apt install curl -y
+apt install $need -y
+fi
 echo "Pulling and executing the Procursus Migration Script"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/beta/procursus-migration.sh)"
 echo "Done. Creating a custom directory for the required files. Path (/User/Documents/uncursus)."
