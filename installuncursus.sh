@@ -17,6 +17,7 @@ if [ $(uname) = "Linux" ]; then
 fi
 if [[ "${PC}" = yes ]]; then
 echo "Use This On SSH Over IP Session Thanks On Your Idevice"
+exit  1
      else
     echo "ARM Darwin Dectected Running ..."
 echo "Checking If Is A Clean Install Of Unc0ver..."
@@ -27,6 +28,7 @@ if [[ -f "/.installed_unc0ver" ]]; then
                    fi
 if [[ "${u0}" = no ]]; then
 echo "Use Unc0ver Thanks"
+exit  1
 else 
 echo "Unc0ver Dectected"
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
