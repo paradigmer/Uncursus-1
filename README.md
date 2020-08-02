@@ -11,7 +11,7 @@
 ***Note: I recommend that you know what you're doing***<br/>
 1) You don't need to restore rootfs anymore Tweaks/Apps Are saved<br/>
 2) Refresh sources in Cydia and install `OpenSSH` and `Curl`<br/>
-3) Find the IP of your iDevice and connect via SSH on your computer.<br/>
+3) Find the IP of your iDevice and connect to it via SSH on your computer. Don't know what SSH is or how to use it? Refer to: https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work<br/>
 4) Use the following command in your SSH session for installation:<br/>
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/new/installuncursus.sh)"`<br/>
 5) Once your device resprings, launch Sileo and you're good to go.<br/>
