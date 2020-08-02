@@ -34,4 +34,5 @@
 
 ### Credits:
 [Procursus Team](https://github.com/ProcursusTeam/) - for the bootstrap<br/>
+[CoolStar](https://github.com/coolstar/) - Previously for the deploy script (that not used anymore)<br/>
 knuckles approver#1119 (on Discord) - for the testing and name of the project<br/>
