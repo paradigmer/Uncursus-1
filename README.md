@@ -20,8 +20,8 @@
 ***Disclaimer: This is still in beta***<br/>
 1) You don't need to restore rootfs anymore, Tweaks/Apps are saved
 2) Add https://repo.yaya48.gq in cydia
-3) Install `Uncursus Installer` as well as `NewTerm (iOS 10-13)` if you don't have it already
-4) Open NewTerm and login as root with your password. Type `su`, then `alpine` (or your root password)
+3) Install `Uncursus Installer` come with MTerminal as a dependency, newterm isn't supported.
+4) Open MTerminal and login as root with your password. Type `su`, then `alpine` (or your root password)
 5) Type `uncursus-installer`, then run it and wait
 6) When finished, your device will respring.
 7) Open Sileo, update your packages and enjoy
