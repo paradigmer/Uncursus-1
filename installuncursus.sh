@@ -8,16 +8,27 @@ command -v plutil >/dev/null 2>&1 || need+="com.bingner.plutil "
 command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.0 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo "Checking if This Script Is Runned On ARM Darwin"
+if [ $(uname) = "Linux" ]; then
+	if [ $(uname -p) = "x86_64" ]; then
+		PC=yes
+     fi
+fi
+if [[ "${PC}" = yes ]]; then
+echo "Use This On SSH Over IP Session Thanks On Your Idevice"
+     else
+    echo "ARM Darwin Dectected Running ..."
 echo "Checking If Is A Clean Install Of Unc0ver..."
-if [[ -f "/.procursus_strapped" ]]; then
-echo "Please do not use this on odyssey or on an already uncursus installation.."
-exit 1
-fi
-if [[ -f "/.bootstrapped" ]]; then
-echo "Please do not use this on checkra1n"
-exit 1
-fi
+if [[ -f "/.installed_unc0ver" ]]; then
+              u0=yes
+                  else
+                     u0=no
+                   fi
+if [[ "${u0}" = no ]]; then
+echo "Use Unc0ver Thanks"
+else 
+echo "Unc0ver Dectected"
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
 echo "If you've found any bugs, please create an issue in GitHub."
 echo "Checking Dependencies..."
@@ -66,4 +77,6 @@ echo "All Done."
 touch /.installed_odyssey
 touch /.procursus_strapped
 sbreload
+fi
+fi
 fi
