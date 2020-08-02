@@ -9,28 +9,28 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
-echo "Checking if This Script Is Run On ARM Darwin"
+echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
 		PC=yes
      fi
 fi
 if [[ "${PC}" = yes ]]; then
-echo "Use This On SSH Over IP Session Thanks On Your Idevice"
+echo "Use this script with SSH over an IP session on your iDevice. Thanks."
 exit  1
      else
-    echo "ARM Darwin Dectected Running ..."
-echo "Checking If Is A Clean Install Of Unc0ver..."
+    echo "ARM Darwin detected, running..."
+echo "Checking if you're using a clean install of unc0ver..."
 if [[ -f "/.installed_unc0ver" ]]; then
               u0=yes
                   else
                      u0=no
                    fi
 if [[ "${u0}" = no ]]; then
-echo "Use Unc0ver Thanks"
+echo "Use unc0ver, thanks"
 exit  1
 else 
-echo "Unc0ver Dectected"
+echo "unc0ver detected"
 echo "WARNING: I'M NOT RESPONSIBLE IF ANYTHING GOES WRONG"
 echo "If you've found any bugs, please create an issue in GitHub."
 echo "Checking Dependencies..."
