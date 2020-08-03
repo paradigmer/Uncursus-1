@@ -2,6 +2,7 @@
 if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
+echo "Copyright (c) 2020, Yaya4 All rights reserved."
 need=""
 command -v unzip >/dev/null 2>&1 || need+="unzip "
 command -v plutil >/dev/null 2>&1 || need+="com.bingner.plutil "
