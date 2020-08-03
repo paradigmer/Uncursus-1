@@ -2,13 +2,13 @@
 if [ "$EUID" -ne 0 ]; then
 echo You need to run this script as root.
 else
-echo "Copyright (c) 2020, Yaya4 All rights reserved."
 need=""
 command -v unzip >/dev/null 2>&1 || need+="unzip "
 command -v plutil >/dev/null 2>&1 || need+="com.bingner.plutil "
 command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
+echo "Copyright (c) 2020, Yaya4 All rights reserved."
 echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
