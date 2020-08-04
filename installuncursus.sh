@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.3 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -58,8 +58,8 @@ echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/odyssey
 echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/odyssey
 echo "" >> /etc/apt/preferenced.d/odyssey
 echo "Done. Installing Sileo"
-wget -q https://github.com/coolstar/Odyssey-bootstrap/raw/master/org.coolstar.sileo_1.8.1_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus
-dpkg -i /User/Documents/uncursus/org.coolstar.sileo_1.8.1_iphoneos-arm.deb
+apt update
+apt install org.coolstar.sileo -y --allow-unauthenticated 
 echo "Done. Downloading necessities"
 wget -q https://yaya48.gq/files/uncursus/debpatch.zip --directory-prefix=/User/Documents/uncursus/
 unzip /User/Documents/uncursus/debpatch.zip -d /User/Documents/uncursus/debpatch
