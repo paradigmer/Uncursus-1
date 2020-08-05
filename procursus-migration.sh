@@ -21,6 +21,9 @@ else
 if [[ "${VER%.*.*}" -ge 12 ]]; then
 echo "iOS 12 detected, setting the CFVER to 1500"
 CFVER=1500
+else
+echo "Hi Your iOS Version Is Under iOS 12 Or Either Than 13"
+exit 1
 fi
 fi
 fi
