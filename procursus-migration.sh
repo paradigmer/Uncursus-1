@@ -47,7 +47,6 @@ apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1 
 cp /var/root/migration/libncurses.6.dylib /usr/lib
 dpkg -i --force-all /var/root/migration/firmware-sbin_0-1_iphoneos-arm.deb
-dpkg -i --force-overwrite /var/cache/apt/archives/dpkg_1.20.5-1_iphoneos-arm.deb
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /var/root/migration/coreutils_8.32-2_iphoneos-arm.deb
 dpkg -r apt1.4
