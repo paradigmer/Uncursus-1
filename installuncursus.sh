@@ -57,7 +57,7 @@ echo "Package: *" > /etc/apt/preferenced.d/odyssey
 echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/odyssey
 echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/odyssey
 echo "" >> /etc/apt/preferenced.d/odyssey
-wget -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
+wget -q -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
 apt update
 echo "Done. Installing Sileo"
 apt install org.coolstar.sileo -y
