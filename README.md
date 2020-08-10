@@ -9,7 +9,7 @@
 ***Disclaimer: I am not held responsible for any damage done to your device.***<br/>
 ***Note: you must have a computer to launch the script via SSH, you cannot use NewTerm.***<br/>
 ***Note: I recommend that you know what you're doing***<br/>
-***Note: After The installtion You Will have Procursus Cydia By Default Free to you to Keep Cdyia or install zebra,sileo,installer or other package manager PS : For sileo use odyssey repo ***<br/>
+***Note: After The installtion You Will have Procursus Cydia By Default Free to you to Keep Cdyia or install zebra,sileo,installer or other package manager PS : For sileo use odyssey repo***<br/>
 1) You don't need to restore rootfs anymore, Tweaks/Apps are saved<br/>
 2) Refresh sources in Cydia and install `OpenSSH` and `Curl`<br/>
 3) Find the IP of your iDevice and connect to it via SSH on your computer. Don't know what SSH is or how to use it? Refer to: https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work<br/>
