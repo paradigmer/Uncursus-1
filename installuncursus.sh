@@ -60,8 +60,8 @@ echo "" >> /etc/apt/preferenced.d/uncursus
 wget -q -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
 apt update
 echo "Done. Installing Procursus Cydia..."
-apt purge cydia -y 
-apt install cydia -y
+apt purge cydia -y --allow-remove-essential
+apt install cydia -y essential -y
 echo "Done. Downloading necessities"
 rm -rf /usr/bin/cynject
 wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
