@@ -47,7 +47,7 @@ rm -rf /User/Documents/uncursus
 mkdir /User/Documents/uncursus
 mkdir /User/Documents/uncursus/u0
 echo "Done. Setuping Uncursus Repo...."
-echo "Types: deb" > /etc/apt/sources.list.d/odyssey.sources
+echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
 echo "URIs: https://yaya48.github.io/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
 echo "Suites: ./" >> /etc/apt/sources.list.d/uncursus.sources
 echo "Components: " >> /etc/apt/sources.list.d/uncursus.sources
