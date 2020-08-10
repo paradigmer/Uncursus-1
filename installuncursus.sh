@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.4 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.5 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -59,8 +59,9 @@ echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/uncursus
 echo "" >> /etc/apt/preferenced.d/uncursus
 wget -q -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
 apt update
-echo "Done. Installing Sileo"
-apt install org.coolstar.sileo -y
+echo "Done. Installing Procursus Cydia..."
+apt purge cydia -y 
+apt install cydia -y
 echo "Done. Downloading necessities"
 rm -rf /usr/bin/cynject
 wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
@@ -72,9 +73,6 @@ echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
 echo "Bootstrap installation complete. Cleaning up..."
 rm -rf /User/Documents/uncursus/
-echo "Uninstalling Cydia..."
-apt purge cydia -y
-uicache -a
 echo "All Done."
 touch /.installed_odyssey
 touch /.procursus_strapped
