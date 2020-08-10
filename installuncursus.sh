@@ -48,15 +48,15 @@ mkdir /User/Documents/uncursus
 mkdir /User/Documents/uncursus/u0
 echo "Done. Setuping Uncursus Repo...."
 echo "Types: deb" > /etc/apt/sources.list.d/odyssey.sources
-echo "URIs: https://yaya48.github.io/uncursusrepo" >> /etc/apt/sources.list.d/odyssey.sources
-echo "Suites: ./" >> /etc/apt/sources.list.d/odyssey.sources
-echo "Components: " >> /etc/apt/sources.list.d/odyssey.sources
-echo "" >> /etc/apt/sources.list.d/odyssey.sources
+echo "URIs: https://yaya48.github.io/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
+echo "Suites: ./" >> /etc/apt/sources.list.d/uncursus.sources
+echo "Components: " >> /etc/apt/sources.list.d/uncursus.sources
+echo "" >> /etc/apt/sources.list.d/uncursus.sources
 mkdir -p /etc/apt/preferenced.d/
-echo "Package: *" > /etc/apt/preferenced.d/odyssey
-echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/odyssey
-echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/odyssey
-echo "" >> /etc/apt/preferenced.d/odyssey
+echo "Package: *" > /etc/apt/preferenced.d/uncursus
+echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/uncursus
+echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/uncursus
+echo "" >> /etc/apt/preferenced.d/uncursus
 wget -q -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
 apt update
 echo "Done. Installing Sileo"
