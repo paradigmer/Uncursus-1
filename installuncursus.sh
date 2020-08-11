@@ -21,7 +21,7 @@ echo "Use this script with SSH over an IP session on your iDevice. Thanks."
 exit  1
      else
     echo "ARM Darwin detected, running..."
-echo "Checking if you're using a clean install of unc0ver..."
+echo "Checking if you're using unc0ver..."
 if [[ -f "/.installed_unc0ver" ]]; then
               u0=yes
                   else
