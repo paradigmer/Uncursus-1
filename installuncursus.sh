@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.5 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.5.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -55,7 +55,7 @@ echo "" >> /etc/apt/sources.list.d/uncursus.sources
 mkdir -p /etc/apt/preferenced.d/
 echo "Package: *" > /etc/apt/preferenced.d/uncursus
 echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/uncursus
-echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/uncursus
+echo "Pin-Priority: 10000" >> /etc/apt/preferenced.d/uncursus
 echo "" >> /etc/apt/preferenced.d/uncursus
 wget -q -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
 apt update
