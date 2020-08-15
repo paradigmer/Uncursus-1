@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.5.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.6 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -42,10 +42,10 @@ apt install $need -y
 fi
 echo "Pulling and executing the Procursus Migration Script..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/new/procursus-migration.sh)"
-echo "Creating a custom directory for the required files. Path (/User/Documents/uncursus)."
-rm -rf /User/Documents/uncursus
-mkdir /User/Documents/uncursus
-mkdir /User/Documents/uncursus/u0
+echo "Creating a custom directory for the required files. Path (/tmp/uncursus)."
+rm -rf /tmp/uncursus
+mkdir /tmp/uncursus
+mkdir /tmp/uncursus/u0
 echo "Done. Setuping Uncursus Repo...."
 echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
 echo "URIs: https://yaya48.github.io/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
@@ -64,15 +64,15 @@ apt purge cydia -y --allow-remove-essential
 apt install cydia -y essential -y
 echo "Done. Downloading necessities"
 rm -rf /usr/bin/cynject
-wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
-wget -q https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6003_iphoneos-arm.deb --directory-prefix=/User/Documents/uncursus/u0
+wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.14_iphoneos-arm.deb --directory-prefix=/tmp/uncursus/u0
+wget -q https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6003_iphoneos-arm.deb --directory-prefix=/tmp/uncursus/u0
 echo "Done. Installing necessities..."
 apt install essential-dummy -y lzma -y
-dpkg -i --force-all /User/Documents/uncursus/u0/*.deb
+dpkg -i --force-all /tmp/uncursus/u0/*.deb
 echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
 echo "Bootstrap installation complete. Cleaning up..."
-rm -rf /User/Documents/uncursus/
+rm -rf /tmp/uncursus/
 echo "All Done."
 touch /.installed_odyssey
 touch /.procursus_strapped
