@@ -16,7 +16,7 @@
 3) Find the IP of your iDevice and connect to it via SSH on your computer. Don't know what SSH is or how to use it? Refer to: https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work<br/>
 4) Use the following command in your SSH session for installation:<br/>
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Yaya48/Uncursus/new/installuncursus.sh)"`<br/>
-5) Once your device resprings, launch Sileo and you're good to go.<br/>
+5) Once your device resprings, launch Cydia and you're good to go.<br/>
 
 ***For all users that don't have a PC, I made a Non-Computer version.***<br/>
 ***Disclaimer: This is still in beta***<br/>
@@ -26,7 +26,7 @@
 4) Open MTerminal and login as root with your password. Type `su`, then `alpine` (or your root password)
 5) Type `uncursus-installer`, then run it and wait
 6) When finished, your device will respring.
-7) Open Sileo, update your packages and enjoy
+7) Open Cydia, update your packages and enjoy
 
 ### Questions & Support:
 - Discord: Yaya4#1989
