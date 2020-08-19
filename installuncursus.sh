@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.6 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.6.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -76,6 +76,7 @@ rm -rf /tmp/uncursus/
 echo "All Done."
 touch /.installed_odyssey
 touch /.procursus_strapped
+uicache -p /Applications/Cydia.app
 sbreload
 fi
 fi
