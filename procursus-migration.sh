@@ -35,7 +35,7 @@ echo "deb https://apt.procurs.us/ iphoneos-arm64/${CFVER} main" >> /etc/apt/sour
 rm -rf /tmp/procursus-migration
 mkdir /tmp/procursus-migration
 wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_8.32-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_8.32-4_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/firmware-sbin_0-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q http://yaya48.gq/files/migration-files/elucubratustoprocursus/libncurses.6.dylib --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i /tmp/procursus-migration/procursus-keyring_2020.05.09_iphoneos-arm.deb
