@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.6.2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.7 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -48,9 +48,9 @@ mkdir /tmp/uncursus
 mkdir /tmp/uncursus/u0
 echo "Done. Setuping Uncursus Repo...."
 echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
-echo "URIs: https://yaya48.github.io/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
-echo "Suites: ./" >> /etc/apt/sources.list.d/uncursus.sources
-echo "Components: " >> /etc/apt/sources.list.d/uncursus.sources
+echo "URIs: https://yaya48.github.io/uncursusrepov2" >> /etc/apt/sources.list.d/uncursus.sources
+echo "Suites: iphoneos-arm64/uncursus" >> /etc/apt/sources.list.d/uncursus.sources
+echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
 echo "" >> /etc/apt/sources.list.d/uncursus.sources
 mkdir -p /etc/apt/preferenced.d/
 echo "Package: *" > /etc/apt/preferenced.d/uncursus
