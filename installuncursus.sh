@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.7 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.7.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -58,7 +58,7 @@ echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/uncursus
 echo "Pin-Priority: 10000" >> /etc/apt/preferenced.d/uncursus
 echo "" >> /etc/apt/preferenced.d/uncursus
 wget -q https://github.com/Yaya48/uncursusrepov2/raw/master/pool/main/iphoneos-arm64/Yaya4Keyring.deb --directory-prefix=/tmp/uncursus/
-dpkg -i --directory-prefix=/tmp/uncursus/Yaya4Keyring.deb
+dpkg -i /tmp/uncursus/Yaya4Keyring.deb
 apt update
 echo "Done. Installing Procursus Cydia..."
 apt purge cydia -y --allow-remove-essential
@@ -74,6 +74,7 @@ echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
 echo "Bootstrap installation complete. Cleaning up..."
 rm -rf /tmp/uncursus/
+rm -rf /tmp/procursus-migration/
 echo "All Done."
 touch /.installed_odyssey
 touch /.procursus_strapped
