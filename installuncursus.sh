@@ -57,7 +57,8 @@ echo "Package: *" > /etc/apt/preferenced.d/uncursus
 echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/uncursus
 echo "Pin-Priority: 10000" >> /etc/apt/preferenced.d/uncursus
 echo "" >> /etc/apt/preferenced.d/uncursus
-wget -q -O - https://github.com/Yaya48/uncursusrepo/raw/master/keyFile | sudo apt-key add -
+wget -q https://github.com/Yaya48/uncursusrepov2/raw/master/pool/main/iphoneos-arm64/Yaya4Keyring.deb --directory-prefix=/tmp/uncursus/
+dpkg -i --directory-prefix=/tmp/uncursus/Yaya4Keyring.deb
 apt update
 echo "Done. Installing Procursus Cydia..."
 apt purge cydia -y --allow-remove-essential
