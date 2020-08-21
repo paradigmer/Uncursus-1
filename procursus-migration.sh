@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0.5 (Sbtale)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0.5.1 (Sbtale)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
@@ -27,6 +27,7 @@ exit 1
 fi
 fi
 fi
+COREUTILSVER=8.32-4
 echo -e "\e[32mStarting Migration....\e[0m"
 apt update
 apt install wget -y --allow-unauthenticated
@@ -35,7 +36,7 @@ echo "deb https://apt.procurs.us/ iphoneos-arm64/${CFVER} main" >> /etc/apt/sour
 rm -rf /tmp/procursus-migration
 mkdir /tmp/procursus-migration
 wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_8.32-4_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/firmware-sbin_0-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q http://yaya48.gq/files/migration-files/elucubratustoprocursus/libncurses.6.dylib --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i /tmp/procursus-migration/procursus-keyring_2020.05.09_iphoneos-arm.deb
@@ -48,7 +49,7 @@ apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 cp /tmp/procursus-migration/libncurses.6.dylib /usr/lib
 dpkg -i --force-all /tmp/procursus-migration/firmware-sbin_0-1_iphoneos-arm.deb
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-dpkg -i --force-all /tmp/procursus-migration/coreutils_8.32-3_iphoneos-arm.deb
+dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
 dpkg -r apt1.4
 apt update
 apt purge libplist-utils -y libplist3 -y
