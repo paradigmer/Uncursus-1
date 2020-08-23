@@ -48,7 +48,7 @@ mkdir /tmp/uncursus
 mkdir /tmp/uncursus/u0
 echo "Done. Setuping Uncursus Repo...."
 echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
-echo "URIs: https://yaya48.github.io/uncursusrepov2" >> /etc/apt/sources.list.d/uncursus.sources
+echo "URIs: https://uncursus.yaya48.gq" >> /etc/apt/sources.list.d/uncursus.sources
 echo "Suites: iphoneos-arm64/uncursus" >> /etc/apt/sources.list.d/uncursus.sources
 echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
 echo "" >> /etc/apt/sources.list.d/uncursus.sources
