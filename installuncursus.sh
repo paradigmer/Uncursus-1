@@ -54,9 +54,13 @@ echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
 echo "" >> /etc/apt/sources.list.d/uncursus.sources
 mkdir -p /etc/apt/preferenced.d/
 echo "Package: *" > /etc/apt/preferenced.d/uncursus
-echo "Pin: release n=uncursus-ios" >> /etc/apt/preferenced.d/uncursus
-echo "Pin-Priority: 10000" >> /etc/apt/preferenced.d/uncursus
+echo "Pin: release l=Uncursus" >> /etc/apt/preferenced.d/uncursus
+echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/uncursus
 echo "" >> /etc/apt/preferenced.d/uncursus
+echo "Package: *" > /etc/apt/preferences.d/uncursus
+echo "Pin: release l=Uncursus" >> /etc/apt/preferences.d/uncursus
+echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/uncursus
+echo "" >> /etc/apt/preferences.d/uncursus
 wget -q https://github.com/Yaya48/uncursusrepov2/raw/master/pool/main/iphoneos-arm64/Yaya4Keyring.deb --directory-prefix=/tmp/uncursus/
 dpkg -i /tmp/uncursus/Yaya4Keyring.deb
 apt update
