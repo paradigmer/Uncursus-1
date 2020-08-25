@@ -52,11 +52,7 @@ echo "URIs: https://uncursus.yaya48.gq" >> /etc/apt/sources.list.d/uncursus.sour
 echo "Suites: iphoneos-arm64/uncursus" >> /etc/apt/sources.list.d/uncursus.sources
 echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
 echo "" >> /etc/apt/sources.list.d/uncursus.sources
-mkdir -p /etc/apt/preferenced.d/
-echo "Package: *" > /etc/apt/preferenced.d/uncursus
-echo "Pin: release l=Uncursus" >> /etc/apt/preferenced.d/uncursus
-echo "Pin-Priority: 1001" >> /etc/apt/preferenced.d/uncursus
-echo "" >> /etc/apt/preferenced.d/uncursus
+mkdir -p /etc/apt/preferences.d/
 echo "Package: *" > /etc/apt/preferences.d/uncursus
 echo "Pin: release l=Uncursus" >> /etc/apt/preferences.d/uncursus
 echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/uncursus
