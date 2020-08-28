@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0.6 (Sbtale)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0.6.1 (Sbtale)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
@@ -53,6 +53,7 @@ apt update
 apt purge libplist-utils -y libplist3 -y
 apt autoremove -y
 apt install libplist-utils -y libplist++-dev -y libplist++-dev -y libplist++3v5 -y libplist-dev -y libplist3 -y ldid -y
+apt install ncurses-bin -y
 echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
 echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
