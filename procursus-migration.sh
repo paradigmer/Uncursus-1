@@ -13,12 +13,10 @@ CFVER=1500
 elif [[ "${VER%.*}" -ge 13 ]]; then
 echo "iOS 13 detected, setting the CFVER to 1600"
 CFVER=1600
-else
-if [[ "${VER%.*.*}" -ge 13 ]]; then
+elif [[ "${VER%.*.*}" -ge 13 ]]; then
 echo "iOS 13 detected, setting the CFVER to 1600"
 CFVER=1600
-else
-if [[ "${VER%.*.*}" -ge 12 ]]; then
+elif [[ "${VER%.*.*}" -ge 12 ]]; then
 echo "iOS 12 detected, setting the CFVER to 1500"
 CFVER=1500
 else
