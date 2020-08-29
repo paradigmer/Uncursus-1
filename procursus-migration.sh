@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.0.6.1 (Sbtale)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.1 (Stable)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
@@ -13,19 +13,15 @@ CFVER=1500
 elif [[ "${VER%.*}" -ge 13 ]]; then
 echo "iOS 13 detected, setting the CFVER to 1600"
 CFVER=1600
-else
-if [[ "${VER%.*.*}" -ge 13 ]]; then
+elif [[ "${VER%.*.*}" -ge 13 ]]; then
 echo "iOS 13 detected, setting the CFVER to 1600"
 CFVER=1600
-else
-if [[ "${VER%.*.*}" -ge 12 ]]; then
+elif [[ "${VER%.*.*}" -ge 12 ]]; then
 echo "iOS 12 detected, setting the CFVER to 1500"
 CFVER=1500
 else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
 exit 1
-fi
-fi
 fi
 COREUTILSVER=8.32-4
 echo -e "\e[32mStarting Migration....\e[0m"
@@ -37,23 +33,17 @@ rm -rf /tmp/procursus-migration
 mkdir /tmp/procursus-migration
 wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q http://yaya48.gq/files/migration-files/elucubratustoprocursus/libncurses.6.dylib --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i /tmp/procursus-migration/procursus-keyring_2020.05.09_iphoneos-arm.deb
 apt update
 apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-wget -q https://yaya48.gq/files/migration-files/shared/${CFVER}/liblzma.dylib --no-check-certificate --directory-prefix=/usr/local/lib
-wget -q https://yaya48.gq/files/migration-files/shared/${CFVER}/liblzma.5.dylib --no-check-certificate --directory-prefix=/usr/local/lib
-apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1 
-cp /tmp/procursus-migration/libncurses.6.dylib /usr/lib
 apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+apt install ncurses-bin -y
 dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
 dpkg -r apt1.4
 apt update
 apt purge libplist-utils -y libplist3 -y
 apt autoremove -y
 apt install libplist-utils -y libplist++-dev -y libplist++-dev -y libplist++3v5 -y libplist-dev -y libplist3 -y ldid -y
-apt install ncurses-bin -y
 echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
 echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
