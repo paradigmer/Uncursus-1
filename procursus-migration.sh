@@ -23,8 +23,6 @@ else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
 exit 1
 fi
-fi
-fi
 COREUTILSVER=8.32-4
 echo -e "\e[32mStarting Migration....\e[0m"
 apt update
