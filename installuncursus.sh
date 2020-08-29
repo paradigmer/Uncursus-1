@@ -68,7 +68,7 @@ rm -rf /usr/bin/cynject
 wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.15_iphoneos-arm.deb --directory-prefix=/tmp/uncursus/u0
 wget -q https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6003_iphoneos-arm.deb --directory-prefix=/tmp/uncursus/u0
 echo "Done. Installing necessities..."
-apt install essential-dummy -y lzma -y
+apt install essential-dummy -y lzma -y ncurses -y
 dpkg -i --force-all /tmp/uncursus/u0/*.deb
 echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
