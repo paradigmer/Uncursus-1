@@ -9,7 +9,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.8.1 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.8-2 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -63,13 +63,8 @@ apt update
 echo "Done. Installing Procursus Cydia..."
 apt purge cydia -y --allow-remove-essential
 apt install cydia -y essential -y
-echo "Done. Downloading necessities"
-rm -rf /usr/bin/cynject
-wget -q https://apt.bingner.com/debs/1443.00/com.ex.substitute_0.1.15_iphoneos-arm.deb --directory-prefix=/tmp/uncursus/u0
-wget -q https://apt.bingner.com/debs/1443.00/com.saurik.substrate.safemode_0.9.6003_iphoneos-arm.deb --directory-prefix=/tmp/uncursus/u0
 echo "Done. Installing necessities..."
 apt install essential-dummy -y lzma -y ncurses -y
-dpkg -i --force-all /tmp/uncursus/u0/*.deb
 echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
 echo "Bootstrap installation complete. Cleaning up..."
