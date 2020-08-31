@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.1 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.1.1 (Stable)\e[0m"
 echo "Checking iOS Version"
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
@@ -23,8 +23,8 @@ else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
 exit 1
 fi
+echo -e "\e[32mStarting Migration On iOS $VER ....\e[0m"
 COREUTILSVER=8.32-4
-echo -e "\e[32mStarting Migration....\e[0m"
 apt update
 apt install wget -y --allow-unauthenticated
 rm /etc/apt/sources.list.d/cydia.list
@@ -35,9 +35,16 @@ wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyrin
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i /tmp/procursus-migration/procursus-keyring_2020.05.09_iphoneos-arm.deb
 apt update
-apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-apt full-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+apt install libncursesw6 -y
+if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
+echo "Fixing.."
+ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
+else
+echo "Nothing To Do!"
+fi
 apt install ncurses-bin -y
+apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
 dpkg -r apt1.4
 apt update
