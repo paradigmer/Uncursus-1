@@ -4,9 +4,9 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.1 (Stable)\e[0m"
 checkiOSVersion(){
-echo "Checking iOS Version"
+echo "Checking iOS Version ..."
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
 echo "iOS 12 detected, setting the CFVER to 1500"
@@ -29,6 +29,42 @@ checkDependencies(){
 echo "Checking Dependencies ..."
 apt update
 apt install wget -y --allow-unauthenticated
+}
+checkSileo(){
+echo "Checking if sileo for checkrain is installed ..."
+dpkg -s org.coolstar.sileo &> /dev/null
+if [ $? -eq 0 ]; then
+echo "Sileo for checkrain is installed."
+echo "Uninstalling Sileo..."
+rm -rf /tmp/sileoremoveal
+mkdir /tmp/sileoremoveal
+echo "Downloading necessary debs."
+wget -q https://apt.bingner.com/debs/1443.00/libapt-pkg5.0_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+wget -q https://apt.bingner.com/debs/1443.00/libapt_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+wget -q https://apt.bingner.com/debs/1443.00/apt-key_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+wget -q https://apt.bingner.com/debs/1443.00/apt_1.8.2-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+wget -q https://apt.bingner.com/debs/1443.00/cydia_1.1.32~b23_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+wget -q https://apt.bingner.com/debs/1443.00/cydia-lproj_1.1.32~b1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+echo "Done. Installing necessary debs."
+cd /tmp/sileoremoveal
+dpkg -i --force-all libapt_1.8.2-1_iphoneos-arm.deb
+dpkg -i --force-all libapt-pkg5.0_1.8.2-1_iphoneos-arm.deb
+dpkg -i --force-all apt-key_1.8.2-1_iphoneos-arm.deb
+dpkg -i --force-all apt_1.8.2-3_iphoneos-arm.deb
+dpkg -i --force-all cydia_1.1.32~b23_iphoneos-arm.deb
+dpkg -i --force-all cydia-lproj_1.1.32~b1_iphoneos-arm.deb
+echo "Done. Removing Sileo."
+dpkg -r org.coolstar.sileo
+echo "Done. Upgrading"
+apt update
+apt full-upgrade -y --allow-downgrades --allow-unauthenticated
+apt remove sileoprep
+uicache -p /Applications/Sileo.app
+uicache -p /Applications/Cydia.app
+rm -rf /tmp/sileoremoveal
+else
+    echo "Sileo is NOT installed!"
+fi
 }
 ProcursusMigration(){
 echo "Migrating..."
@@ -71,6 +107,7 @@ echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
 checkiOSVersion
 echo -e "\e[32mStarting Migration On iOS $VER ....\e[0m"
 checkDependencies
+checkSileo
 ProcursusMigration
 MigrationCleanUp
 ProcursusSourcesSetup
