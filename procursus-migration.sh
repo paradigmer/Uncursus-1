@@ -4,8 +4,9 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.1.1 (Stable)\e[0m"
-echo "Checking iOS Version"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.1.2 (Stable)\e[0m"
+checkiOSVersion(){
+if command dpkg -s com.bingner.plutil >/dev/null 2>&1 ; then
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
 if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
 echo "iOS 12 detected, setting the CFVER to 1500"
@@ -23,6 +24,13 @@ else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
 exit 1
 fi
+else
+echo "Apprentely uncursus can't check your're ios version please make sure plutil is installed"
+exit 1
+fi
+}
+echo "Checking iOS Version"
+checkiOSVersion
 echo -e "\e[32mStarting Migration On iOS $VER ....\e[0m"
 COREUTILSVER=8.32-4
 apt update
@@ -37,7 +45,7 @@ dpkg -i /tmp/procursus-migration/procursus-keyring_2020.05.09_iphoneos-arm.deb
 apt update
 apt install libncursesw6 -y
 if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
-echo "Fixing.."
+echo "Fixing..."
 ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
 else
 echo "Nothing To Do!"
