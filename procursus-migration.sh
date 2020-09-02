@@ -58,7 +58,7 @@ dpkg -r org.coolstar.sileo
 echo "Done. Upgrading"
 apt update
 apt full-upgrade -y --allow-downgrades --allow-unauthenticated
-apt remove sileoprep
+apt remove sileoprep -y
 uicache -p /Applications/Sileo.app
 uicache -p /Applications/Cydia.app
 rm -rf /tmp/sileoremoveal
