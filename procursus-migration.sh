@@ -63,7 +63,7 @@ uicache -p /Applications/Sileo.app
 uicache -p /Applications/Cydia.app
 rm -rf /tmp/sileoremoveal
 else
-    echo "Sileo is NOT installed!"
+    echo "Sileo is NOT installed, Proccessing ..."
 fi
 }
 ProcursusMigration(){
