@@ -22,7 +22,7 @@ echo "iOS 12 detected, setting the CFVER to 1500"
 CFVER=1500
 else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
-exit 0
+exit 1
 fi
 }
 checkDependencies(){
