@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2-1 (Stable)\e[0m"
 checkiOSVersion(){
 echo "Checking iOS Version ..."
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
@@ -36,6 +36,14 @@ dpkg -s org.coolstar.sileo &> /dev/null
 if [ $? -eq 0 ]; then
 echo "Sileo for checkrain is installed."
 echo "Uninstalling Sileo..."
+echo "Checking Dependencies..."
+need=""
+command -v wget >/dev/null 2>&1 || need+="wget "
+command -v wget >/dev/null 2>&1 || need+="curl "
+if [[ $need = "" ]]; then
+echo "Please install $need with sileo and retry"
+exit 0
+fi
 rm -rf /tmp/sileoremoveal
 mkdir /tmp/sileoremoveal
 echo "Downloading necessary debs."
