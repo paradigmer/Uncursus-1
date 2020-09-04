@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2-1 (Stable)\e[0m"
 checkiOSVersion(){
 echo "Checking iOS Version ..."
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
@@ -22,7 +22,7 @@ echo "iOS 12 detected, setting the CFVER to 1500"
 CFVER=1500
 else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
-exit 1
+exit 0
 fi
 }
 checkDependencies(){
