@@ -85,7 +85,7 @@ else
 echo "Nothing To Do!"
 fi
 apt install ncurses-bin -y
-apt install xz-utils -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+apt install xz-utils diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
 }
