@@ -30,7 +30,7 @@ echo "Checking Dependencies ..."
 need2 =""
 command -v wget >/dev/null 2>&1 || need2+="wget "
 command -v plutil >/dev/null 2>&1 || need2+="com.bingner.plutil "
-if [[ $need != "" ]]; then
+if [[ $need2 != "" ]]; then
 echo "Installing Dependencies..."
 apt update
 apt install $need -y
