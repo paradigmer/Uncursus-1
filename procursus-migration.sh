@@ -4,7 +4,18 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2-4 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.3 (Stable)\e[0m"
+checkDependencies(){
+echo "Checking Dependencies ..."
+need2=""
+command -v wget >/dev/null 2>&1 || need2+="wget "
+command -v plutil >/dev/null 2>&1 || need2+="com.bingner.plutil "
+if [[ $need2 != "" ]]; then
+echo "Installing Dependencies..."
+apt update
+apt install $need2 -y
+fi
+}
 checkiOSVersion(){
 echo "Checking iOS Version ..."
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
@@ -23,17 +34,6 @@ CFVER=1500
 else
 echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
 exit 1
-fi
-}
-checkDependencies(){
-echo "Checking Dependencies ..."
-need2=""
-command -v wget >/dev/null 2>&1 || need2+="wget "
-command -v plutil >/dev/null 2>&1 || need2+="com.bingner.plutil "
-if [[ $need2 != "" ]]; then
-echo "Installing Dependencies..."
-apt update
-apt install $need2 -y
 fi
 }
 checkSileo(){
@@ -110,9 +110,9 @@ echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.source
 echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
 echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
 }
+checkDependencies
 checkiOSVersion
 echo -e "\e[32mStarting Migration On iOS $VER ....\e[0m"
-checkDependencies
 checkSileo
 ProcursusMigration
 MigrationCleanUp
