@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2-3 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 1.2.2-4 (Stable)\e[0m"
 checkiOSVersion(){
 echo "Checking iOS Version ..."
 VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
@@ -27,13 +27,13 @@ fi
 }
 checkDependencies(){
 echo "Checking Dependencies ..."
-need2 = ""
+need2=""
 command -v wget >/dev/null 2>&1 || need2+="wget "
 command -v plutil >/dev/null 2>&1 || need2+="com.bingner.plutil "
 if [[ $need2 != "" ]]; then
 echo "Installing Dependencies..."
 apt update
-apt install $need -y
+apt install $need2 -y
 fi
 }
 checkSileo(){
