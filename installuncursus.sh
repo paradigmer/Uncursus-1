@@ -8,7 +8,7 @@ command -v curl >/dev/null 2>&1 || need+="curl "
 command -v wget >/dev/null 2>&1 || need+="wget "
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.8-3 (Stable) By @Yaya4_4 on Twitter.\e[0m"
+echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.8-4 (Stable) By @Yaya4_4 on Twitter.\e[0m"
 echo "Checking if this script is running on ARM Darwin"
 if [ $(uname) = "Linux" ]; then
 	if [ $(uname -p) = "x86_64" ]; then
@@ -63,6 +63,7 @@ echo "Done. Installing Procursus Cydia..."
 apt purge cydia -y --allow-remove-essential
 apt install cydia -y essential -y
 echo "Done. Installing necessities..."
+apt update
 apt install essential-dummy -y lzma -y ncurses -y
 echo "Done. Running Firmware Configuration (./firmware.sh)"
 /usr/libexec/firmware
