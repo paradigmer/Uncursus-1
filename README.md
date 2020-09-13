@@ -20,7 +20,6 @@
 5) Once your device resprings, launch Cydia and you're good to go.<br/>
 
 ***For all users that don't have a PC, I made a Non-Computer version.***<br/>
-***Disclaimer: This is still in beta***<br/>
 1) You don't need to restore rootfs anymore, Tweaks/Apps are saved
 2) Add https://repo.yaya48.gq in cydia
 3) Install `Uncursus Installer` come with MTerminal as a dependency, newterm isn't supported.
