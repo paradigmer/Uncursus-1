@@ -88,13 +88,14 @@ wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/xz-utils_5.2.5-
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/liblzma5_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libncursesw6_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/ncurses-term_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-dpkg -i --force-all /tmp/procursus-migration/*
+dpkg -i /tmp/procursus-migration/libncursesw6_6.2-1_iphoneos-arm.deb
 if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
 echo "Fixing ..."
 ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
 else
 echo "Nothing To Do!"
 fi
+dpkg -i --force-all /tmp/procursus-migration/*
 apt update
 dpkg -r --force-all libidn2
 apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
