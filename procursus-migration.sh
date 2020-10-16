@@ -84,6 +84,8 @@ wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COR
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/apt_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libapt-pkg6.0_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/xz-utils_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/liblzma5_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i --force-all /tmp/procursus-migration/*
 apt update
 dpkg -r --force-all libidn2
