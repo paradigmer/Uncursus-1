@@ -61,7 +61,7 @@ else
       apt update
       echo "Done. Installing Procursus Cydia..."
       apt purge cydia -y --allow-remove-essential
-      apt install cydia -y essential -y
+      apt install cydia -y essential -y libidn2 -y
       echo "Done. Installing necessities..."
       apt update
       apt install essential-dummy -y lzma -y ncurses -y
