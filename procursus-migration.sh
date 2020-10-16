@@ -4,7 +4,7 @@ echo You need to run this script as root.
 else
 clear
 echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 2.0.0 (Stable)\e[0m"
+echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 2.0.0-1 (Stable)\e[0m"
 checkDependencies(){
 echo "Checking Dependencies ..."
 need2=""
