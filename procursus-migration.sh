@@ -79,9 +79,9 @@ else
     echo "deb https://apt.procurs.us/ iphoneos-arm64/${CFVER} main" >> /etc/apt/sources.list.d/cydia.list
     rm -rf /tmp/procursus-migration
     mkdir /tmp/procursus-migration
-    mkdir /tmp/procursus-migration/coreutils/
+    mkdir /tmp/coreutils/
     wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=mkdir /tmp/
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/coreutils/
     wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
     wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/apt_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
     wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libapt-pkg6.0_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
@@ -102,7 +102,7 @@ else
     apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
     apt install diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
     apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-    dpkg -i --force-all /tmp/coreutils_${COREUTILSVER}_iphoneos-arm.deb
+    dpkg -i --force-all /tmp/coreutils/coreutils_${COREUTILSVER}_iphoneos-arm.deb
   }
   MigrationCleanUp(){
     echo "CleaningUp ..."
