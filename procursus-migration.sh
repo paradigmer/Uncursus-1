@@ -98,7 +98,7 @@ else
     fi
     dpkg -i --force-all /tmp/procursus-migration/*
     apt update
-    dpkg -r libidn2
+    dpkg -r --force-all libidn2
     apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
     apt install diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
     apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
