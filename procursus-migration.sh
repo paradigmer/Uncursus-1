@@ -1,130 +1,130 @@
 #!/bin/bash
 if [ "$EUID" -ne 0 ]; then
-echo You need to run this script as root.
+  echo You need to run this script as root.
 else
-clear
-echo "Copyright (c) 2020, Yaya4 All rights reserved."
-echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 2.0.0 (Stable)\e[0m"
-checkDependencies(){
-echo "Checking Dependencies ..."
-need2=""
-command -v wget >/dev/null 2>&1 || need2+="wget "
-command -v plutil >/dev/null 2>&1 || need2+="com.bingner.plutil "
-if [[ $need2 != "" ]]; then
-echo "Installing Dependencies..."
-apt update
-apt install $need2 -y
-fi
-}
-checkiOSVersion(){
-echo "Checking iOS Version ..."
-VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
-if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
-echo "iOS 12 detected, setting the CFVER to 1500"
-CFVER=1500
-elif [[ "${VER%.*}" -ge 13 ]]; then
-echo "iOS 13 detected, setting the CFVER to 1600"
-CFVER=1600
-elif [[ "${VER%.*.*}" -ge 13 ]]; then
-echo "iOS 13 detected, setting the CFVER to 1600"
-CFVER=1600
-elif [[ "${VER%.*.*}" -ge 12 ]]; then
-echo "iOS 12 detected, setting the CFVER to 1500"
-CFVER=1500
-else
-echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
-exit 1
-fi
-}
-checkSileo(){
-echo "Checking if sileo for checkrain is installed ..."
-dpkg -s org.coolstar.sileo &> /dev/null
-if [ $? -eq 0 ]; then
-echo "Sileo for checkrain is installed."
-echo "Uninstalling Sileo..."
-rm -rf /tmp/sileoremoveal
-mkdir /tmp/sileoremoveal
-echo "Downloading necessary debs."
-wget -q https://apt.bingner.com/debs/1443.00/libapt-pkg5.0_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
-wget -q https://apt.bingner.com/debs/1443.00/libapt_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
-wget -q https://apt.bingner.com/debs/1443.00/apt-key_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
-wget -q https://apt.bingner.com/debs/1443.00/apt_1.8.2-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
-wget -q https://apt.bingner.com/debs/1443.00/cydia_1.1.32~b23_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
-wget -q https://apt.bingner.com/debs/1443.00/cydia-lproj_1.1.32~b1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
-echo "Done. Installing necessary debs."
-cd /tmp/sileoremoveal
-dpkg -i --force-all libapt_1.8.2-1_iphoneos-arm.deb
-dpkg -i --force-all libapt-pkg5.0_1.8.2-1_iphoneos-arm.deb
-dpkg -i --force-all apt-key_1.8.2-1_iphoneos-arm.deb
-dpkg -i --force-all apt_1.8.2-3_iphoneos-arm.deb
-dpkg -i --force-all cydia_1.1.32~b23_iphoneos-arm.deb
-dpkg -i --force-all cydia-lproj_1.1.32~b1_iphoneos-arm.deb
-echo "Done. Removing Sileo."
-dpkg -r org.coolstar.sileo
-echo "Done. Upgrading"
-apt update
-apt full-upgrade -y --allow-downgrades --allow-unauthenticated
-apt remove sileoprep -y
-uicache -p /Applications/Sileo.app
-uicache -p /Applications/Cydia.app
-rm -rf /tmp/sileoremoveal
-else
-    echo "Sileo is NOT installed, Proccessing ..."
-fi
-}
-ProcursusMigration(){
-echo "Migrating..."
-COREUTILSVER=8.32-6
-rm /etc/apt/sources.list.d/cydia.list
-echo "deb https://apt.procurs.us/ iphoneos-arm64/${CFVER} main" >> /etc/apt/sources.list.d/cydia.list
-rm -rf /tmp/procursus-migration
-mkdir /tmp/procursus-migration
-wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/apt_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libapt-pkg6.0_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/xz-utils_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/liblzma5_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libncursesw6_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/ncurses-term_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
-dpkg -i --force-all /tmp/procursus-migration/libncursesw6_6.2-1_iphoneos-arm.deb
-if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
-echo "Fixing ..."
-ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
-else
-echo "Nothing To Do!"
-fi
-dpkg -i --force-all /tmp/procursus-migration/*
-apt update
-dpkg -r --force-all libidn2
-apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
-apt install diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
-dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
-}
-MigrationCleanUp(){
-echo "CleaningUp ..."
-dpkg -r apt1.4
-apt update
-apt purge libplist-utils -y libplist3 -y
-apt autoremove -y
-apt install libplist-utils -y libplist++-dev -y libplist++-dev -y libplist++3v5 -y libplist-dev -y libplist3 -y ldid -y
-}
-ProcursusSourcesSetup(){
-echo "Settings Up Procursus Source ..."
-echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
-echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
-echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
-echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
-}
-checkDependencies
-checkiOSVersion
-echo -e "\e[32mStarting Migration On iOS $VER ....\e[0m"
-checkSileo
-ProcursusMigration
-MigrationCleanUp
-ProcursusSourcesSetup
-echo -e "\e[32mMigration Finished!\e[0m"
-echo -e "\e[32mBack to Uncursus Script...\e[0m"
+  clear
+  echo "Copyright (c) 2020, Yaya4 All rights reserved."
+  echo -e "\e[31mUncursus 2.0 Migration Part By Yaya4_4 2.0.0 (Stable)\e[0m"
+  checkDependencies(){
+    echo "Checking Dependencies ..."
+    need2=""
+    command -v wget >/dev/null 2>&1 || need2+="wget "
+    command -v plutil >/dev/null 2>&1 || need2+="com.bingner.plutil "
+    if [[ $need2 != "" ]]; then
+      echo "Installing Dependencies..."
+      apt update
+      apt install $need2 -y
+    fi
+  }
+  checkiOSVersion(){
+    echo "Checking iOS Version ..."
+    VER=$(/usr/bin/plutil -key ProductVersion /System/Library/CoreServices/SystemVersion.plist)
+    if [[ "${VER%.*}" -ge 12 ]] && [[ "${VER%.*}" -lt 13 ]]; then
+      echo "iOS 12 detected, setting the CFVER to 1500"
+      CFVER=1500
+      elif [[ "${VER%.*}" -ge 13 ]]; then
+      echo "iOS 13 detected, setting the CFVER to 1600"
+      CFVER=1600
+      elif [[ "${VER%.*.*}" -ge 13 ]]; then
+      echo "iOS 13 detected, setting the CFVER to 1600"
+      CFVER=1600
+      elif [[ "${VER%.*.*}" -ge 12 ]]; then
+      echo "iOS 12 detected, setting the CFVER to 1500"
+      CFVER=1500
+    else
+      echo "Your iOS Version Is Under iOS 12 Or Either Than 13"
+      exit 1
+    fi
+  }
+  checkSileo(){
+    echo "Checking if sileo for checkrain is installed ..."
+    dpkg -s org.coolstar.sileo &> /dev/null
+    if [ $? -eq 0 ]; then
+      echo "Sileo for checkrain is installed."
+      echo "Uninstalling Sileo..."
+      rm -rf /tmp/sileoremoveal
+      mkdir /tmp/sileoremoveal
+      echo "Downloading necessary debs."
+      wget -q https://apt.bingner.com/debs/1443.00/libapt-pkg5.0_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+      wget -q https://apt.bingner.com/debs/1443.00/libapt_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+      wget -q https://apt.bingner.com/debs/1443.00/apt-key_1.8.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+      wget -q https://apt.bingner.com/debs/1443.00/apt_1.8.2-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+      wget -q https://apt.bingner.com/debs/1443.00/cydia_1.1.32~b23_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+      wget -q https://apt.bingner.com/debs/1443.00/cydia-lproj_1.1.32~b1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/sileoremoveal
+      echo "Done. Installing necessary debs."
+      cd /tmp/sileoremoveal
+      dpkg -i --force-all libapt_1.8.2-1_iphoneos-arm.deb
+      dpkg -i --force-all libapt-pkg5.0_1.8.2-1_iphoneos-arm.deb
+      dpkg -i --force-all apt-key_1.8.2-1_iphoneos-arm.deb
+      dpkg -i --force-all apt_1.8.2-3_iphoneos-arm.deb
+      dpkg -i --force-all cydia_1.1.32~b23_iphoneos-arm.deb
+      dpkg -i --force-all cydia-lproj_1.1.32~b1_iphoneos-arm.deb
+      echo "Done. Removing Sileo."
+      dpkg -r org.coolstar.sileo
+      echo "Done. Upgrading"
+      apt update
+      apt full-upgrade -y --allow-downgrades --allow-unauthenticated
+      apt remove sileoprep -y
+      uicache -p /Applications/Sileo.app
+      uicache -p /Applications/Cydia.app
+      rm -rf /tmp/sileoremoveal
+    else
+      echo "Sileo is NOT installed, Proccessing ..."
+    fi
+  }
+  ProcursusMigration(){
+    echo "Migrating..."
+    COREUTILSVER=8.32-6
+    rm /etc/apt/sources.list.d/cydia.list
+    echo "deb https://apt.procurs.us/ iphoneos-arm64/${CFVER} main" >> /etc/apt/sources.list.d/cydia.list
+    rm -rf /tmp/procursus-migration
+    mkdir /tmp/procursus-migration
+    wget -q http://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/coreutils_${COREUTILSVER}_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/apt_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libapt-pkg6.0_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/xz-utils_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/liblzma5_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libncursesw6_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/ncurses-term_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+    dpkg -i --force-all /tmp/procursus-migration/libncursesw6_6.2-1_iphoneos-arm.deb
+    if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
+      echo "Fixing ..."
+      ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
+    else
+      echo "Nothing To Do!"
+    fi
+    dpkg -i --force-all /tmp/procursus-migration/*
+    apt update
+    dpkg -r --force-all libidn2
+    apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
+    apt install diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+    apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+    dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
+  }
+  MigrationCleanUp(){
+    echo "CleaningUp ..."
+    dpkg -r apt1.4
+    apt update
+    apt purge libplist-utils -y libplist3 -y
+    apt autoremove -y
+    apt install libplist-utils -y libplist++-dev -y libplist++-dev -y libplist++3v5 -y libplist-dev -y libplist3 -y ldid -y
+  }
+  ProcursusSourcesSetup(){
+    echo "Settings Up Procursus Source ..."
+    echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
+    echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
+    echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
+    echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
+  }
+  checkDependencies
+  checkiOSVersion
+  echo -e "\e[32mStarting Migration On iOS $VER ....\e[0m"
+  checkSileo
+  ProcursusMigration
+  MigrationCleanUp
+  ProcursusSourcesSetup
+  echo -e "\e[32mMigration Finished!\e[0m"
+  echo -e "\e[32mBack to Uncursus Script...\e[0m"
 fi
