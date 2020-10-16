@@ -86,16 +86,18 @@ wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/apt_2.1.10-3_ip
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libapt-pkg6.0_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/xz-utils_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/liblzma5_5.2.5-2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libncursesw6_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
+wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/ncurses-term_6.2-1_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i --force-all /tmp/procursus-migration/*
-apt update
-dpkg -r --force-all libidn2
-apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
 if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
 echo "Fixing ..."
 ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
 else
 echo "Nothing To Do!"
 fi
+apt update
+dpkg -r --force-all libidn2
+apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
 apt install diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
