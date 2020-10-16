@@ -86,15 +86,15 @@ wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/apt_2.1.10-3_ip
 wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libapt-pkg6.0_2.1.10-3_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
 dpkg -i --force-all /tmp/procursus-migration/*
 apt update
-apt install libncursesw6 -y
+dpkg -r libidn2
+apt --fix-broken install -y
 if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
 echo "Fixing ..."
 ln -s /usr/lib/libncursesw.6.dylib /usr/lib/libncurses.6.dylib
 else
 echo "Nothing To Do!"
 fi
-apt install ncurses-bin -y
-apt install xz-utils diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
+apt install diskdev-cmds -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 apt dist-upgrade -y --allow-unauthenticated -u -o APT::Force-LoopBreak=1
 dpkg -i --force-all /tmp/procursus-migration/coreutils_${COREUTILSVER}_iphoneos-arm.deb
 }
