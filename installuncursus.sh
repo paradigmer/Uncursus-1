@@ -8,7 +8,7 @@ else
     command -v wget >/dev/null 2>&1 || need+="wget "
     clear
     echo "Copyright (c) 2020, Yaya4 All rights reserved."
-    echo -e "\e[31mWelcome to Uncursus Installation Script V2.0.9.\e[0m"
+    echo -e "\e[31mWelcome to Uncursus Installation Script.\e[0m"
     echo "Checking if this script is running on ARM Darwin"
     if [ $(uname) = "Linux" ]; then
         if [ $(uname -p) = "x86_64" ]; then
@@ -45,7 +45,7 @@ else
             rm -rf /tmp/uncursus
             mkdir /tmp/uncursus
             mkdir /tmp/uncursus/u0
-            echo "Done. Setuping Uncursus Repo...."
+            echo "Done. Setting Up Uncursus Repo...."
             echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
             echo "URIs: https://repo.yaya48.gq/uncursusrepo/" >> /etc/apt/sources.list.d/uncursus.sources
             echo "Suites: iphoneos-arm64/all" >> /etc/apt/sources.list.d/uncursus.sources
