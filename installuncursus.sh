@@ -3,7 +3,6 @@ if [ "$EUID" -ne 0 ]; then
     echo You need to run this script as root.
 else
     need=""
-    command -v plutil >/dev/null 2>&1 || need+="com.bingner.plutil "
     command -v curl >/dev/null 2>&1 || need+="curl "
     command -v wget >/dev/null 2>&1 || need+="wget "
     clear
