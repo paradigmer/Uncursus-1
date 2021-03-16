@@ -49,8 +49,8 @@ else
         mkdir /tmp/zstd-support/
         cd /tmp/zstd-support/
         apt download libintl8 liblzma5 lz4 xz liblz4-1 xz-utils
-        wget https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.7_iphoneos-arm.deb
-        wget https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/zstd_1.4.7_iphoneos-arm.deb
+        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.7_iphoneos-arm.deb --no-check-certificate
+        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/zstd_1.4.7_iphoneos-arm.deb --no-check-certificate
         dpkg -i --force-all *.deb
         cd /tmp/procursus-migration
         apt download libzstd1 apt libapt-pkg6.0 xz-utils liblzma5 libncursesw6 ncurses-term libxxhash0 libxxhash-dev libgcrypt20 libgpg-error0 dpkg
