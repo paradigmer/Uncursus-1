@@ -69,6 +69,7 @@ else
             echo "Bootstrap installation complete. Cleaning up..."
             rm -rf /tmp/uncursus/
             rm -rf /tmp/procursus-migration/
+            rm -rf /tmp/zstd-support/
             echo "All Done."
             touch /.procursus_strapped
             uicache -p /Applications/Cydia.app
