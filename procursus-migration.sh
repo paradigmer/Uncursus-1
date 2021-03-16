@@ -45,7 +45,15 @@ else
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate
         dpkg -i procursus-keyring_2020.05.09_iphoneos-arm.deb
         apt update
-        apt download libzstd1 apt libapt-pkg6.0 xz-utils liblzma5 libncursesw6 ncurses-term libxxhash0 libxxhash-dev
+        rm -rf /tmp/zstd-support/
+        mkdir /tmp/zstd-support/
+        cd /tmp/zstd-support/
+        apt download libintl8 liblzma5 lz4 xz liblz4-1 xz-utils
+        wget https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.7_iphoneos-arm.deb
+        wget https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/zstd_1.4.7_iphoneos-arm.deb
+        dpkg -i --force-all *.deb
+        cd /tmp/procursus-migration
+        apt download libzstd1 apt libapt-pkg6.0 xz-utils liblzma5 libncursesw6 ncurses-term libxxhash0 libxxhash-dev libgcrypt20 libgpg-error0 dpkg
         dpkg -i --force-all /tmp/procursus-migration/libncursesw6*.deb
         if [ ! -f "/usr/lib/libncurses.6.dylib" ]; then
             echo "Fixing ..."
@@ -53,7 +61,8 @@ else
         else
             echo "Nothing To Do!"
         fi
-        dpkg -i --force-all /tmp/procursus-migration/*
+        dpkg -i --force-all dpkg*.deb
+        dpkg -i --force-all *.deb
         apt download coreutils
         dpkg -r --force-all libidn2
         apt --fix-broken install -y -u -o APT::Force-LoopBreak=1
