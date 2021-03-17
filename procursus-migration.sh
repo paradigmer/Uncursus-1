@@ -84,6 +84,7 @@ else
         apt purge libplist-utils -y libplist3 -y
         apt autoremove -y
         apt install libplist-utils -y libplist++-dev -y libplist++-dev -y libplist++3v5 -y libplist-dev -y libplist3 -y ldid -y
+        rm -rf /usr/local/lib/libintl.8.dylib
     }
     checkDependencies || ErrorHandler
     checkiOSVersion || ErrorHandler
