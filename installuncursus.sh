@@ -55,7 +55,7 @@ else
             echo "Pin: release l=Uncursus" >> /etc/apt/preferences.d/uncursus
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/uncursus
             echo "" >> /etc/apt/preferences.d/uncursus
-            wget -q https://repo.yaya48.gq/uncursusrepo/pool/main/iphoneos-arm64/com.yaya4.repokeyring.deb --directory-prefix=/tmp/uncursus/
+            wget -q https://github.com/Yaya48/uncursusrepo/blob/master/pool/main/iphoneos-arm64/Yaya4Keyring.deb --directory-prefix=/tmp/uncursus/
             dpkg -i /tmp/uncursus/com.yaya4.repokeyring.deb
             apt update
             echo "Done. Installing Procursus Cydia..."
