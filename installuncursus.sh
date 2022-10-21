@@ -46,8 +46,8 @@ else
             mkdir /tmp/uncursus/u0
             echo "Done. Setting Up Uncursus Repo...."
             echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
-            echo "URIs: https://repo.yaya48.gq/uncursusrepo/" >> /etc/apt/sources.list.d/uncursus.sources
-            echo "Suites: iphoneos-arm64/all" >> /etc/apt/sources.list.d/uncursus.sources
+            echo "URIs: https://github.com/Yaya48/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
+            echo "Suites: iphoneos-arm64/binary-iphoneos-arm" >> /etc/apt/sources.list.d/uncursus.sources
             echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
             echo "" >> /etc/apt/sources.list.d/uncursus.sources
             mkdir -p /etc/apt/preferences.d/
@@ -55,7 +55,7 @@ else
             echo "Pin: release l=Uncursus" >> /etc/apt/preferences.d/uncursus
             echo "Pin-Priority: 1001" >> /etc/apt/preferences.d/uncursus
             echo "" >> /etc/apt/preferences.d/uncursus
-            wget -q https://repo.yaya48.gq/uncursusrepo/pool/main/iphoneos-arm64/com.yaya4.repokeyring.deb --directory-prefix=/tmp/uncursus/
+            wget -q https://github.com/Yaya48/uncursusrepo/tree/master/pool/main/iphoneos-arm64/com.yaya4.repokeyring.deb --directory-prefix=/tmp/uncursus/
             dpkg -i /tmp/uncursus/com.yaya4.repokeyring.deb
             apt update
             echo "Done. Installing Procursus Cydia..."
