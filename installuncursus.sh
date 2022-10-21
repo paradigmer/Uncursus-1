@@ -47,7 +47,7 @@ else
             echo "Done. Setting Up Uncursus Repo...."
             echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
             echo "URIs: https://github.com/Yaya48/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
-            echo "Suites: iphoneos-arm64/binary-iphoneos-arm" >> /etc/apt/sources.list.d/uncursus.sources
+            echo "Suites: dists/iphoneos-arm64/uncursus/" >> /etc/apt/sources.list.d/uncursus.sources
             echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
             echo "" >> /etc/apt/sources.list.d/uncursus.sources
             mkdir -p /etc/apt/preferences.d/
