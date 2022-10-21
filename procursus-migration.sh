@@ -38,19 +38,19 @@ else
     ProcursusMigration(){
         echo "Migrating..."
         rm /etc/apt/sources.list.d/cydia.list
-        echo "deb https://apt.procurs.us/ iphoneos-arm64/${CFVER} main" >> /etc/apt/sources.list.d/cydia.list
+        echo "deb https://apt.procurs.us/pool/main/iphoneos-arm64/1700/ main" >> /etc/apt/sources.list.d/cydia.list
         rm -rf /tmp/procursus-migration
         mkdir /tmp/procursus-migration
         cd /tmp/procursus-migration
-        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/procursus-keyring_2020.05.09_iphoneos-arm.deb --no-check-certificate
-        dpkg -i procursus-keyring_2020.05.09_iphoneos-arm.deb
+        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/procursus-keyring_2020.05.09-2_all.deb --no-check-certificate
+        dpkg -i procursus-keyring_2020.05.09-2_all.deb
         apt update
         rm -rf /tmp/zstd-support/
         mkdir /tmp/zstd-support/
         cd /tmp/zstd-support/
         apt download libintl8 liblzma5 lz4 xz liblz4-1 xz-utils
-        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/libzstd1_1.4.7_iphoneos-arm.deb --no-check-certificate
-        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/${CFVER}/zstd_1.4.7_iphoneos-arm.deb --no-check-certificate
+        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libzstd1_1.5.2_iphoneos-arm.deb --no-check-certificate
+        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/zstd_1.5.2_iphoneos-arm.deb --no-check-certificate
         dpkg -i --force-all *.deb
         cd /tmp/procursus-migration
         apt download libzstd1 apt libapt-pkg6.0 xz-utils liblzma5 libncursesw6 ncurses-term libxxhash0 libxxhash-dev libgcrypt20 libgpg-error0 dpkg
@@ -74,7 +74,7 @@ else
         echo "Settings Up Procursus Source ..."
         echo "Types: deb" > /etc/apt/sources.list.d/procursus.sources
         echo "URIs: https://apt.procurs.us/" >> /etc/apt/sources.list.d/procursus.sources
-        echo "Suites: iphoneos-arm64/${CFVER}" >> /etc/apt/sources.list.d/procursus.sources
+        echo "Suites: iphoneos-arm64/1700" >> /etc/apt/sources.list.d/procursus.sources
         echo "Components: main" >> /etc/apt/sources.list.d/procursus.sources
     }
     MigrationCleanUp(){
