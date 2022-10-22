@@ -41,14 +41,11 @@ else
             echo "Pulling and executing the Procursus Migration Script..."
             /bin/bash /usr/bin/procursus-migration
             echo "Creating a custom directory for the required files. Path (/tmp/uncursus)."
-            rm -rf /tmp/uncursus
-            mkdir /tmp/uncursus
-            mkdir /tmp/uncursus/u0
             echo "Done. Setting Up Uncursus Repo...."
             echo "Types: deb" > /etc/apt/sources.list.d/uncursus.sources
-            echo "URIs: https://github.com/Yaya48/uncursusrepo" >> /etc/apt/sources.list.d/uncursus.sources
+            echo "URIs: https://github.com/Yaya48/uncursusrepo/tree/master/main" >> /etc/apt/sources.list.d/uncursus.sources
             echo "Suites: dists/iphoneos-arm64/uncursus/" >> /etc/apt/sources.list.d/uncursus.sources
-            echo "Components: main" >> /etc/apt/sources.list.d/uncursus.sources
+            echo "Components: binary-iphoneos-arm" >> /etc/apt/sources.list.d/uncursus.sources
             echo "" >> /etc/apt/sources.list.d/uncursus.sources
             mkdir -p /etc/apt/preferences.d/
             echo "Package: *" > /etc/apt/preferences.d/uncursus
