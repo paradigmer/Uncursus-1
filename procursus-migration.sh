@@ -39,14 +39,12 @@ else
         echo "Migrating..."
         rm /etc/apt/sources.list.d/cydia.list
         echo "deb https://apt.procurs.us/pool/main/iphoneos-arm64/1700/ main" >> /etc/apt/sources.list.d/cydia.list
-        rm -rf /tmp/procursus-migration
-        mkdir /tmp/procursus-migration
+
         cd /tmp/procursus-migration
-        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/procursus-keyring_2020.05.09-2_all.deb --no-check-certificate
+        wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/keyring/procursus-keyring_2020.05.09-3_all.deb --no-check-certificate
         dpkg -i procursus-keyring_2020.05.09-2_all.deb
         apt update
-        rm -rf /tmp/zstd-support/
-        mkdir /tmp/zstd-support/
+
         cd /tmp/zstd-support/
         apt download libintl8 liblzma5 lz4 xz liblz4-1 xz-utils
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libzstd1_1.5.2_iphoneos-arm.deb --no-check-certificate
