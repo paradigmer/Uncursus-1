@@ -23,7 +23,7 @@ else
         if [[ -f "/.installed_unc0ver" ]]; then
             u0=yes
         else
-            u0=no
+            u0=yes
         fi
         if [[ "${u0}" = no ]]; then
             echo "Use unc0ver, thanks"
