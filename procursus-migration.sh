@@ -42,7 +42,7 @@ else
 
         cd /tmp/procursus-migration
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/keyring/procursus-keyring_2020.05.09-3_all.deb --no-check-certificate
-        dpkg -i procursus-keyring_2020.05.09-2_all.deb
+        dpkg -i procursus-keyring_2020.05.09-3_all.deb
         apt update
 
         cd /tmp/zstd-support/
