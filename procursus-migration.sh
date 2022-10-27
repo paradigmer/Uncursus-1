@@ -20,21 +20,7 @@ else
             apt update
             apt install $need2 -y
         fi
-    }
-    checkiOSVersion(){
-        echo "Checking iOS Version ..."
-        echo "1 for *OS 14"
-        echo "2 for *OS 13"
-        echo "3 for *OS 12"
-        read version
-        if [ "1" = $version ]; then
-            CFVER=1700
-        elif [ "2" = $version ]; then
-            CFVER=1600
-        elif [ "3" = $version ]; then
-            CFVER=1500
-        fi
-    }
+
     ProcursusMigration(){
         echo "Migrating..."
         rm /etc/apt/sources.list.d/cydia.list
@@ -44,7 +30,7 @@ else
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/keyring/procursus-keyring_2020.05.09-3_all.deb --no-check-certificate
         dpkg -i /tmp/procursus-migration/procursus-keyring_2020.05.09-3_all.deb
         apt update
-
+        mkdir /tmp/zstd-support/ 
         cd /tmp/zstd-support/
         apt download libintl8 liblzma5 lz4 xz liblz4-1 xz-utils
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libintl8_0.21-4_iphoneos-arm.deb --no-check-certificate
@@ -56,6 +42,7 @@ else
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libzstd1_1.5.2_iphoneos-arm.deb --no-check-certificate
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/zstd_1.5.2_iphoneos-arm.deb --no-check-certificate
         dpkg -i --force-all *.deb
+        mkdir /tmp/procursus-migration
         cd /tmp/procursus-migration
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libzstd1_1.5.2_iphoneos-arm.deb --no-check-certificate
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/apt/apt_2.5.2_iphoneos-arm.deb --no-check-certificate
