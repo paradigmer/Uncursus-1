@@ -41,7 +41,7 @@ else
         wget -q https://apt.bingner.com/debs/1443.00/xz_5.2.4-4_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/zstd-support/
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libzstd1_1.5.2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/zstd-support/
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/zstd_1.5.2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/zstd-support/
-        dpkg -i --force-all *.deb
+        dpkg -i --force-all /tmp/zstd-support/*.deb
         cd /tmp/procursus-migration
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/libzstd1_1.5.2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migration
         wget -q https://apt.procurs.us/pool/main/iphoneos-arm64/1700/apt/apt_2.5.2_iphoneos-arm.deb --no-check-certificate --directory-prefix=/tmp/procursus-migratio
